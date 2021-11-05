@@ -1,0 +1,147 @@
+import 'package:flutter/material.dart';
+import 'package:generic_bloc_provider/generic_bloc_provider.dart';
+import 'package:my_app/bloc/app_bloc.dart';
+import 'package:my_app/src/test_component/model/test_component_model.dart';
+import 'package:my_app/src/test_component/ui/widgets/cube_list.dart';
+
+class TestScreen extends StatefulWidget {
+  TestScreen({Key? key}) : super(key: key);
+
+  @override
+  State<TestScreen> createState() => _TestScreenState();
+}
+
+class _TestScreenState extends State<TestScreen> {
+  int _selectedIndex = 0;
+  static const TextStyle optionStyle =
+      TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
+
+  static List<Widget> autosRojos = [
+    const ListComponent(
+        name: "Moto G",
+        description:
+            "FIIIIIIUUUmFIIIFAKFK90KASFOKFASPKAFSKPOAKPOAKSFOPKASFPOKPAOSK",
+        url:
+            "https://media.istockphoto.com/photos/illustration-of-generic-red-car-on-white-background-picture-id1146583348"),
+    const ListComponent(
+        name: "Moto H",
+        description:
+            "MEGA FIUUUUUUMASFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFAFASFASFSA",
+        url:
+            "https://images.unsplash.com/photo-1580446623001-3abf670c5c55?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8cmVkJTIwY2FyfGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&w=1000&q=80"),
+    const ListComponent(
+        name: "Moto F",
+        description:
+            "AUN MAS FIUUUUUUMAAAFAAJFJASIOPFJAIOJFOIAJFIAJFJAFJOAISJFASJFOAJSOFJASOIF",
+        url:
+            "https://p4.wallpaperbetter.com/wallpaper/404/106/480/vehicles-pogea-racing-fplus-corsa-car-red-car-wallpaper-thumb.jpg")
+  ];
+
+  static List<Widget> autosAzules = [
+    const ListComponent(
+        name: "Moto A",
+        description:
+            "FIIIIIIUUUmFIIIFAKFK90KASFOKFASPKAFSKPOAKPOAKSFOPKASFPOKPAOSK",
+        url: "https://i.ytimg.com/vi/5kFrhWuDphc/maxresdefault.jpg"),
+    const ListComponent(
+        name: "Moto B",
+        description:
+            "MEGA FIUUUUUUMASFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFAFASFASFSA",
+        url:
+            "https://eftm.com/wp-content/uploads/2019/12/Ford-Focus-ST-Line.jpg"),
+    const ListComponent(
+        name: "Moto C",
+        description:
+            "AUN MAS FIUUUUUUMAAAFAAJFJASIOPFJAIOJFOIAJFIAJFJAFJOAISJFASJFOAJSOFJASOIF",
+        url:
+            "https://image.shutterstock.com/image-illustration/blue-coupe-sporty-car-generic-260nw-722682265.jpg")
+  ];
+
+  static List<Widget> autosNegros = [
+    const ListComponent(
+        name: "Moto W",
+        description:
+            "FIIIIIIUUUmFIIIFAKFK90KASFOKFASPKAFSKPOAKPOAKSFOPKASFPOKPAOSK",
+        url:
+            "https://media.istockphoto.com/photos/illustration-of-generic-red-car-on-white-background-picture-id1146583348"),
+    const ListComponent(
+        name: "Moto Y",
+        description:
+            "MEGA FIUUUUUUMASFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFAFASFASFSA",
+        url:
+            "https://images.unsplash.com/photo-1580446623001-3abf670c5c55?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8cmVkJTIwY2FyfGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&w=1000&q=80"),
+    const ListComponent(
+        name: "Moto Z",
+        description:
+            "AUN MAS FIUUUUUUMAAAFAAJFJASIOPFJAIOJFOIAJFIAJFJAFJOAISJFASJFOAJSOFJASOIF",
+        url:
+            "https://p4.wallpaperbetter.com/wallpaper/404/106/480/vehicles-pogea-racing-fplus-corsa-car-red-car-wallpaper-thumb.jpg")
+  ];
+
+  final List<List> _widgetOptions = [
+    [
+      const Text(
+        'Autos rojos',
+        style: optionStyle,
+      ),
+      ListView(children: autosRojos)
+    ],
+    [
+      const Text(
+        'Autos azules',
+        style: optionStyle,
+      ),
+      ListView(children: autosAzules)
+    ],
+    [
+      const Text(
+        'Autos negros',
+        style: optionStyle,
+      ),
+      ListView(children: autosNegros)
+    ],
+  ];
+
+  void _onItemTapped(int index) {
+    setState(() {
+      _selectedIndex = index;
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    Size size = MediaQuery.of(context).size;
+    final AppBloc _appBloc = BlocProvider.of<AppBloc>(context);
+    _appBloc.setSize(size.width, size.height);
+
+    double width = _appBloc.getWidth();
+    double height = _appBloc.getHeight();
+
+    return Scaffold(
+        appBar: AppBar(
+          backgroundColor: Colors.black,
+          elevation: 0,
+          title: _widgetOptions.elementAt(_selectedIndex).elementAt(0),
+        ),
+        body: _widgetOptions.elementAt(_selectedIndex).elementAt(1),
+        bottomNavigationBar: BottomNavigationBar(
+          items: const <BottomNavigationBarItem>[
+            BottomNavigationBarItem(
+              icon: Icon(Icons.car_repair),
+              label: 'Red',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.car_repair_outlined),
+              label: 'Blue',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.car_repair_sharp),
+              label: 'Black',
+            ),
+          ],
+          currentIndex: _selectedIndex,
+          selectedItemColor: Colors.amber[800],
+          onTap: _onItemTapped,
+        ));
+  }
+}
