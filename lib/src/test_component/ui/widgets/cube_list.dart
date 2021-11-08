@@ -2,15 +2,18 @@ import 'package:flutter/material.dart';
 import 'package:generic_bloc_provider/generic_bloc_provider.dart';
 import 'package:my_app/bloc/app_bloc.dart';
 import 'package:my_app/src/test_component/model/test_component_model.dart';
+import 'package:my_app/src/test_component/ui/screens/description.dart';
 
 class ListComponent extends StatelessWidget {
   final String name;
   final String description;
+  final String contenido;
   final String url;
   const ListComponent(
       {Key? key,
       required this.name,
       required this.description,
+      required this.contenido,
       required this.url})
       : super(key: key);
 
@@ -48,12 +51,28 @@ class ListComponent extends StatelessWidget {
                     Container(
                         margin: EdgeInsets.only(top: height * 0.03),
                         child: Text(description)),
-                    IconButton(
+                    /* IconButton(
                         onPressed: () {},
                         icon: const Icon(
                           Icons.add_box_outlined,
                           color: Colors.black,
-                        ))
+                        )) */
+                    Center(
+                      child: IconButton(
+                        icon: const Icon(Icons.add_box_outlined,
+                            color: Colors.red),
+                        onPressed: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => DescriptionRoute(
+                                        url: url,
+                                        name: name,
+                                        contenido: contenido,
+                                      )));
+                        },
+                      ),
+                    )
                   ],
                 ),
               ),
