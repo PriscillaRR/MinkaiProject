@@ -3,12 +3,12 @@ import 'package:generic_bloc_provider/generic_bloc_provider.dart';
 import 'package:my_app/bloc/app_bloc.dart';
 import 'package:my_app/src/test_component/model/test_component_model.dart';
 
-class DescriptionRoute extends StatelessWidget {
+class ContentRoute extends StatelessWidget {
   final String url;
   final String name;
 
   final String contenido;
-  const DescriptionRoute(
+  const ContentRoute(
       {Key? key,
       required this.name,
       required this.contenido,

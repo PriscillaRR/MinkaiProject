@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:generic_bloc_provider/generic_bloc_provider.dart';
 import 'package:my_app/bloc/app_bloc.dart';
 import 'package:my_app/src/test_component/model/test_component_model.dart';
-import 'package:my_app/src/test_component/ui/screens/description.dart';
+import 'package:my_app/src/test_component/ui/screens/content_car_screen.dart';
 
 class ListComponent extends StatelessWidget {
   final String name;
@@ -65,7 +65,7 @@ class ListComponent extends StatelessWidget {
                           Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) => DescriptionRoute(
+                                  builder: (context) => ContentRoute(
                                         url: url,
                                         name: name,
                                         contenido: contenido,
