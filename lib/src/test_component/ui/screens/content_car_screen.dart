@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:generic_bloc_provider/generic_bloc_provider.dart';
-import 'package:my_app/bloc/app_bloc.dart';
+import 'package:MinkaiProject/bloc/app_bloc.dart';
 
 
 class ContentRoute extends StatelessWidget {
