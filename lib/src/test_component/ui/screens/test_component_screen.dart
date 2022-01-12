@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:generic_bloc_provider/generic_bloc_provider.dart';
 import 'package:my_app/bloc/app_bloc.dart';
-import 'package:my_app/src/test_component/model/test_component_model.dart';
+
 import 'package:my_app/src/test_component/ui/widgets/cube_list.dart';
 
 class TestScreen extends StatefulWidget {
