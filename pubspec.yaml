@@ -1,4 +1,4 @@
-name: my_app
+name: MinkaiProject
 description: A new Flutter project.
 
 # Prevent accidental publishing to pub.dev.
@@ -12,17 +12,24 @@ environment:
 dependencies:
   expandable_text: 2.2.0
 
+
   flutter:
     sdk: flutter
 
   flutter_localizations:
     sdk: flutter
+  
+  generic_bloc_provider: ^2.0.0-nullsafety.1
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  generic_bloc_provider: ^2.0.0-nullsafety.1
+  
   flutter_lints: ^1.0.0
+  json_serializable: ^4.1.3
+  json_annotation: ^4.0.1
+  dio: ^4.0.0
+  build_runner: ^2.1.7
 
   
   

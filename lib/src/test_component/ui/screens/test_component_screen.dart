@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:generic_bloc_provider/generic_bloc_provider.dart';
-import 'package:my_app/bloc/app_bloc.dart';
-import 'package:my_app/src/test_component/model/test_component_model.dart';
-import 'package:my_app/src/test_component/ui/widgets/cube_list.dart';
+import 'package:MinkaiProject/bloc/app_bloc.dart';
+import 'package:MinkaiProject/src/test_component/model/test_component_model.dart';
+import 'package:MinkaiProject/src/test_component/ui/widgets/cube_list.dart';
 
 class TestScreen extends StatefulWidget {
   TestScreen({Key? key}) : super(key: key);
@@ -118,6 +118,7 @@ class _TestScreenState extends State<TestScreen> {
       ),
       ListView(children: autosNegros)
     ],
+    [],
   ];
 
   void _onItemTapped(int index) {
@@ -156,6 +157,10 @@ class _TestScreenState extends State<TestScreen> {
               icon: Icon(Icons.car_repair_sharp),
               label: 'Black',
             ),
+            /*BottomNavigationBarItem(
+              icon: Icon(Icons.person_add),
+              label: 'Person',
+            ),*/
           ],
           currentIndex: _selectedIndex,
           selectedItemColor: Colors.amber[800],
