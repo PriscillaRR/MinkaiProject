@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:generic_bloc_provider/generic_bloc_provider.dart';
 import 'package:MinkaiProject/bloc/app_bloc.dart';
-import 'package:MinkaiProject/src/test_component/model/test_component_model.dart';
 import 'package:MinkaiProject/src/test_component/ui/screens/content_car_screen.dart';
 
 class ListComponent extends StatelessWidget {

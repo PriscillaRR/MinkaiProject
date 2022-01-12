@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:json_annotation/json_annotation.dart';
 part 'team_model.g.dart';
 
+@JsonSerializable()
 class TeamModel {
   @JsonKey(name: '_id')
   String? id;
