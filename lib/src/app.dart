@@ -4,7 +4,6 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:generic_bloc_provider/generic_bloc_provider.dart';
 import 'package:MinkaiProject/bloc/app_bloc.dart';
 import 'settings/settings_controller.dart';
-import 'settings/settings_view.dart';
 import 'test_component/ui/screens/test_component_screen.dart';
 
 /// The Widget that configures your application.
