@@ -1,5 +1,6 @@
 import 'dart:math';
 
+import 'package:MinkaiProject/src/team/ui/screens/team_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:generic_bloc_provider/generic_bloc_provider.dart';
 import 'package:MinkaiProject/bloc/app_bloc.dart';
@@ -97,64 +98,6 @@ class _TestScreenState extends State<TestScreen> {
             "https://media.diariorepublica.com/cms/wp-content/uploads/2018/04/carro-negro.jpg")
   ];
 
-  static List<Widget> autosVerdes = [
-    const ListComponent(
-        name: "Moto W",
-        contenido:
-            "mFIIIFAKFK90KASFOKFASPKAFSKPOAKPOAKSFOPKASFPOKPAOSKmFIIIFAKFK90KASFOKFASPKAFSKPOAKPOAKSFOPKASFPOKPAOSKmFIIIFAKFK90KASFOKFASPKAFSKPOAKPOAKSFOPKASFPOKPAOSKmFIIIFAKFK90KASFOKFASPKAFSKPOAKPOAKSFOPKASFPOKPAOSKmFIIIFAKFK90KASFOKFASPKAFSKPOAKPOAKSFOPKASFPOKPAOSK",
-        description:
-            "FIIIIIIUUUmFIIIFAKFK90KASFOKFASPKAFSKPOAKPOAKSFOPKASFPOKPAOSK",
-        url:
-            "https://cdn.autobild.es/sites/navi.axelspringer.es/public/styles/1200/public/media/image/2018/01/turkmenistan.jpg?itok=C96WOEm_"),
-    const ListComponent(
-        name: "Moto Y",
-        contenido:
-            "mFIIIFAKFK90KASFOKFASPKAFSKPOAKPOAKSFOPKASFPOKPAOSKmFIIIFAKFK90KASFOKFASPKAFSKPOAKPOAKSFOPKASFPOKPAOSKmFIIIFAKFK90KASFOKFASPKAFSKPOAKPOAKSFOPKASFPOKPAOSKmFIIIFAKFK90KASFOKFASPKAFSKPOAKPOAKSFOPKASFPOKPAOSKmFIIIFAKFK90KASFOKFASPKAFSKPOAKPOAKSFOPKASFPOKPAOSK",
-        description:
-            "MEGA FIUUUUUUMASFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFAFASFASFSA",
-        url:
-            "https://img.automexico.com/crop/840x640/2019/05/22/wCRDWz6M/aston-martin-vantage-onyx-black-2019-1280-02-1839.jpg"),
-    const ListComponent(
-        name: "Moto Z",
-        contenido:
-            "mFIIIFAKFK90KASFOKFASPKAFSKPOAKPOAKSFOPKASFPOKPAOSKmFIIIFAKFK90KASFOKFASPKAFSKPOAKPOAKSFOPKASFPOKPAOSKmFIIIFAKFK90KASFOKFASPKAFSKPOAKPOAKSFOPKASFPOKPAOSKmFIIIFAKFK90KASFOKFASPKAFSKPOAKPOAKSFOPKASFPOKPAOSKmFIIIFAKFK90KASFOKFASPKAFSKPOAKPOAKSFOPKASFPOKPAOSK",
-        description:
-            "AUN MAS FIUUUUUUMAAAFAAJFJASIOPFJAIOJFOIAJFIAJFJAFJOAISJFASJFOAJSOFJASOIF",
-        url:
-            "https://media.diariorepublica.com/cms/wp-content/uploads/2018/04/carro-negro.jpg")
-  ];
-
-  final List<List> _widgetOptions = [
-    [
-      const Text(
-        'Autos rojos',
-        style: optionStyle,
-      ),
-      ListView(children: autosRojos)
-    ],
-    [
-      const Text(
-        'Autos azules',
-        style: optionStyle,
-      ),
-      ListView(children: autosAzules)
-    ],
-    [
-      const Text(
-        'Autos negros',
-        style: optionStyle,
-      ),
-      ListView(children: autosNegros)
-    ],
-    [
-      const Text(
-        'Autos verdes',
-        style: optionStyle,
-      ),
-      ListView(children: autosVerdes)
-    ],
-  ];
-
   void _onItemTapped(int index) {
     setState(() {
       _selectedIndex = index;
@@ -170,13 +113,44 @@ class _TestScreenState extends State<TestScreen> {
     double width = _appBloc.getWidth();
     double height = _appBloc.getHeight();
 
+    final List<Widget> _widgetOptions = [
+      Column(
+        children: [
+          const Text(
+            'Autos rojos',
+            style: optionStyle,
+          ),
+          ListView(children: autosRojos)
+        ],
+      ),
+      Column(
+        children: [
+          const Text(
+            'Autos azules',
+            style: optionStyle,
+          ),
+          ListView(children: autosAzules)
+        ],
+      ),
+      Column(
+        children: [
+          const Text(
+            'Autos negros',
+            style: optionStyle,
+          ),
+          ListView(children: autosNegros)
+        ],
+      ),
+      //TeamScreen(),
+    ];
+
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.black,
         elevation: 0,
-        title: _widgetOptions.elementAt(_selectedIndex).elementAt(0),
+        title: Text("data"), //_widgetOptions.elementAt(_selectedIndex), //
       ),
-      body: _widgetOptions.elementAt(_selectedIndex).elementAt(1),
+      body: _widgetOptions.elementAt(_selectedIndex), //
       bottomNavigationBar: BottomNavigationBar(
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
