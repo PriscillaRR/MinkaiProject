@@ -120,7 +120,9 @@ class _TestScreenState extends State<TestScreen> {
             'Autos rojos',
             style: optionStyle,
           ),
-          ListView(children: autosRojos)
+          Expanded(
+              child: Container(
+                  height: height * 0.7, child: ListView(children: autosRojos)))
         ],
       ),
       Column(
@@ -129,7 +131,10 @@ class _TestScreenState extends State<TestScreen> {
             'Autos azules',
             style: optionStyle,
           ),
-          ListView(children: autosAzules)
+          Expanded(
+            child: Container(
+                height: height * 0.7, child: ListView(children: autosAzules)),
+          )
         ],
       ),
       Column(
@@ -138,10 +143,13 @@ class _TestScreenState extends State<TestScreen> {
             'Autos negros',
             style: optionStyle,
           ),
-          ListView(children: autosNegros)
+          Expanded(
+            child: Container(
+                height: height * 0.7, child: ListView(children: autosNegros)),
+          )
         ],
       ),
-      //TeamScreen(),
+      TeamScreen(),
     ];
 
     return Scaffold(
@@ -150,7 +158,7 @@ class _TestScreenState extends State<TestScreen> {
         elevation: 0,
         title: Text("data"), //_widgetOptions.elementAt(_selectedIndex), //
       ),
-      body: _widgetOptions.elementAt(_selectedIndex), //
+      body: _widgetOptions.elementAt(_selectedIndex),
       bottomNavigationBar: BottomNavigationBar(
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(

@@ -4,7 +4,6 @@ class AppBloc extends Bloc {
   double width = 0;
   double height = 0;
 
-
   void setSize(double w, double h) {
     width = w;
     height = h;
